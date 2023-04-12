@@ -7,15 +7,18 @@ import com.example.CS205.gamepanel.graphics.Sprite;
 import com.example.CS205.gamepanel.graphics.SpriteSheet;
 
 class LavaTile extends Tile {
-    private final Sprite sprite;
+    private final Sprite grassSprite;
+    private final Sprite lavaSprite;
 
     public LavaTile(SpriteSheet spriteSheet, Rect mapLocationRect) {
         super(mapLocationRect);
-        sprite = spriteSheet.getLavaSprite();
+        grassSprite = spriteSheet.getGrassSprite();
+        lavaSprite = spriteSheet.getLavaSprite();
     }
 
     @Override
     public void draw(Canvas canvas) {
-        sprite.draw(canvas, mapLocationRect.left, mapLocationRect.top);
+        grassSprite.draw(canvas, mapLocationRect.left, mapLocationRect.top);
+        lavaSprite.draw(canvas, mapLocationRect.left, mapLocationRect.top);
     }
 }

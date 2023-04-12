@@ -41,7 +41,7 @@ public class SpriteSheet {
     }
 
     public Sprite getLavaSprite() {
-        return getSpriteByIndex(1, 1);
+        return new Sprite(this, new Rect(464, 1, 527, 65));
     }
 
     public Sprite getGroundSprite() {

@@ -86,7 +86,13 @@ public class MapLayout {
         layout = new int[60][60];
         for (int i = 0; i < 60; i++) {
             for (int j = 0; j < 60; j++) {
-                if (rand.nextInt(1000) < 100) layout[i][j] = 4;
+                int random = rand.nextInt(1000);
+                if (random < 100){
+                    layout[i][j] = 4;
+                }
+                else if(random < 120){
+                    layout[i][j] = 1;
+                }
                 else layout[i][j] = 3;
             }
         }
