@@ -16,8 +16,8 @@ import com.example.CS205.gameobject.Spell;
 import com.example.CS205.gamepanel.GameOver;
 import com.example.CS205.gamepanel.Joystick;
 import com.example.CS205.gamepanel.Performance;
-import com.example.CS205.graphics.Animator;
-import com.example.CS205.graphics.SpriteSheet;
+import com.example.CS205.gamepanel.graphics.Animator;
+import com.example.CS205.gamepanel.graphics.SpriteSheet;
 import com.example.CS205.map.Tilemap;
 
 import java.util.ArrayList;

@@ -10,7 +10,7 @@ import com.example.CS205.gamepanel.HealthBar;
 import com.example.CS205.gamepanel.Joystick;
 import com.example.CS205.R;
 import com.example.CS205.Utils;
-import com.example.CS205.graphics.Animator;
+import com.example.CS205.gamepanel.graphics.Animator;
 
 /**
  * Player is the main character of the game, which the user can control with a touch joystick.
