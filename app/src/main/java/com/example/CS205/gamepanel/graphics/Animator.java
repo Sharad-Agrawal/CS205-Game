@@ -1,4 +1,4 @@
-package com.example.CS205.graphics;
+package com.example.CS205.gamepanel.graphics;
 
 import android.graphics.Canvas;
 
@@ -47,7 +47,7 @@ public class Animator {
     }
 
     public void drawFrame(Canvas canvas, GameDisplay gameDisplay, Player player, Sprite sprite) {
-        sprite.draw(
+        sprite.draw2(
                 canvas,
                 (int) gameDisplay.gameToDisplayCoordinatesX(player.getPositionX()) - sprite.getWidth()/2,
                 (int) gameDisplay.gameToDisplayCoordinatesY(player.getPositionY()) - sprite.getHeight()/2

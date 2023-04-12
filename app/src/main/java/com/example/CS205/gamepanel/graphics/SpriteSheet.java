@@ -1,4 +1,4 @@
-package com.example.CS205.graphics;
+package com.example.CS205.gamepanel.graphics;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -11,23 +11,29 @@ public class SpriteSheet {
     private static final int SPRITE_WIDTH_PIXELS = 64;
     private static final int SPRITE_HEIGHT_PIXELS = 64;
     private Bitmap bitmap;
+    private Bitmap bitmap2;
 
     public SpriteSheet(Context context) {
         BitmapFactory.Options bitmapOptions = new BitmapFactory.Options();
         bitmapOptions.inScaled = false;
         bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.sprite_sheet, bitmapOptions);
+        bitmap2 = BitmapFactory.decodeResource(context.getResources(), R.drawable.char_purple_1, bitmapOptions);
     }
 
     public Sprite[] getPlayerSpriteArray() {
         Sprite[] spriteArray = new Sprite[3];
-        spriteArray[0] = new Sprite(this, new Rect(0*64, 0, 1*64, 64));
-        spriteArray[1] = new Sprite(this, new Rect(1*64, 0, 2*64, 64));
-        spriteArray[2] = new Sprite(this, new Rect(2*64, 0, 3*64, 64));
+        spriteArray[0] = new Sprite(this, new Rect(18, 24, 40, 56)); //stationary
+        spriteArray[1] = new Sprite(this, new Rect(16, 136, 41, 168)); //moving_v1
+        spriteArray[2] = new Sprite(this, new Rect(74, 136, 95, 168)); //moving_v2
         return spriteArray;
     }
 
     public Bitmap getBitmap() {
         return bitmap;
+    }
+
+    public Bitmap getBitmap2(){
+        return bitmap2;
     }
 
     public Sprite getWaterSprite() {

@@ -1,4 +1,4 @@
-package com.example.CS205.graphics;
+package com.example.CS205.gamepanel.graphics;
 
 import android.graphics.Canvas;
 import android.graphics.Rect;
@@ -18,6 +18,15 @@ public class Sprite {
             spriteSheet.getBitmap(),
                 rect,
                 new Rect(x, y, x+getWidth(), y+getHeight()),
+                null
+        );
+    }
+
+    public void draw2(Canvas canvas, int x, int y) {
+        canvas.drawBitmap(
+                spriteSheet.getBitmap2(),
+                rect,
+                new Rect(x, y, x+(getWidth()*2), y+(getHeight()*2)),
                 null
         );
     }
