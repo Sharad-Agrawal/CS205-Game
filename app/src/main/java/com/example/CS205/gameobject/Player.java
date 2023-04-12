@@ -71,9 +71,16 @@ public class Player extends Circle {
             this.healthPoints = MAX_HEALTH_POINTS;
         else if (healthPoints >= 0)
             this.healthPoints = healthPoints;
+        else {
+            this.healthPoints = 0;
+        }
     }
 
     public PlayerState getPlayerState() {
         return playerState;
+    }
+
+    public int getMaxHealthPoints() {
+        return MAX_HEALTH_POINTS;
     }
 }
