@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 
 import com.example.CS205.GameDisplay;
-import com.example.CS205.graphics.SpriteSheet;
+import com.example.CS205.gamepanel.graphics.SpriteSheet;
 
 import static com.example.CS205.map.MapLayout.NUMBER_OF_COLUMN_TILES;
 import static com.example.CS205.map.MapLayout.NUMBER_OF_ROW_TILES;

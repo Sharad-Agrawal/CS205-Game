@@ -3,8 +3,8 @@ package com.example.CS205.map;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 
-import com.example.CS205.graphics.Sprite;
-import com.example.CS205.graphics.SpriteSheet;
+import com.example.CS205.gamepanel.graphics.Sprite;
+import com.example.CS205.gamepanel.graphics.SpriteSheet;
 
 class GrassTile extends Tile {
     private final Sprite sprite;
