@@ -16,7 +16,7 @@ public class SpriteSheet {
     public SpriteSheet(Context context) {
         BitmapFactory.Options bitmapOptions = new BitmapFactory.Options();
         bitmapOptions.inScaled = false;
-        bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.sprite_sheet, bitmapOptions);
+        bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.image, bitmapOptions);
         bitmap2 = BitmapFactory.decodeResource(context.getResources(), R.drawable.char_purple_1, bitmapOptions);
     }
 
@@ -49,11 +49,11 @@ public class SpriteSheet {
     }
 
     public Sprite getGrassSprite() {
-        return getSpriteByIndex(1, 3);
+        return new Sprite(this, new Rect(67, 67, 131, 131));
     }
 
     public Sprite getTreeSprite() {
-        return getSpriteByIndex(1, 4);
+        return new Sprite(this, new Rect(8, 539, 49, 577));
     }
 
 
