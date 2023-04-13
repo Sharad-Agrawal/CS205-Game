@@ -23,6 +23,7 @@ import com.example.CS205.gamepanel.graphics.SpriteSheet;
 import com.example.CS205.gamepanel.RestartButton;
 
 import com.example.CS205.map.Tilemap;
+import com.example.CS205.network.NetUtility;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -96,8 +97,11 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
                     if (restartButton.checkButtonArea(x_coord, y_coord)) {
                         enemyList.clear();
                         spellList.clear();
+                        enemyDamage = 0;
                         player.setHealthPoint(player.getMaxHealthPoints());
                         pointview.points = 0;
+                        gameLoop = new GameLoop(this, gameLoop.getSurfaceHolder());
+                        gameLoop.startLoop();
                     }
                 } else
                     if (joystick.getIsPressed()) {
@@ -180,7 +184,8 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
         if (player.getHealthPoint() <= 0) {
             gameOver.draw(canvas);
             restartButton.draw(canvas);
-//            gameLoop.stopLoop();
+            NetUtility.saveScoreToLeaderboard("CS205 God", pointview.points);
+            gameLoop.pauseLoop();
         }
     }
 
