@@ -23,7 +23,7 @@ public class GameOver {
         String text = "Game Over";
 
         float x = 800;
-        float y = 200;
+        float y = 500;
 
         Paint paint = new Paint();
         int color = ContextCompat.getColor(context, R.color.gameOver);
