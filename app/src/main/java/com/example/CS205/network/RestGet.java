@@ -28,7 +28,8 @@ public class RestGet extends Thread {
                 int nameIdx = line.indexOf("Name") + 7;
                 int scoreIdx = line.indexOf("Score");
                 String name = line.substring(nameIdx, scoreIdx - 3);
-                Integer score = Math.max(Integer.parseInt(line.substring(scoreIdx + 7)), scores.getOrDefault(name, 0));
+                if (scores.containsKey(name)) continue;
+                Integer score = Integer.parseInt(line.substring(scoreIdx + 7));
                 scores.put(name, score);
             }
         }

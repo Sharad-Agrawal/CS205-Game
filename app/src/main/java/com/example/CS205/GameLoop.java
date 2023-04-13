@@ -105,6 +105,7 @@ public class GameLoop extends Thread{
                 startTime = System.currentTimeMillis();
             }
         }
+        this.interrupt();
     }
 
     public void stopLoop() {
@@ -116,4 +117,21 @@ public class GameLoop extends Thread{
             e.printStackTrace();
         }
     }
+
+    public void pauseLoop() {
+        Log.d("GameLoop.java", "pauseLoop()");
+        isRunning = false;
+//        try {
+//            join();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+    }
+
+    public void resumeLoop() {
+        Log.d("GameLoop.java", "resumeLoop()");
+        isRunning = true;
+    }
+
+    public SurfaceHolder getSurfaceHolder() {return surfaceHolder;}
 }
