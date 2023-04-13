@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.widget.Button;
 import android.view.animation.AnimationUtils;
-
+import android.widget.EditText;
 
 
 import com.example.CS205.network.ApiInterface;
@@ -22,9 +22,12 @@ import java.util.Map;
 public class MainActivity extends Activity {
 
     private Game game;
+    String name;
 
     private Button button;
     private ApiInterface apiInterface;
+    EditText nameInput;
+
 
     Animation animBlink;
 
@@ -35,18 +38,21 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         // Set content view to game, so that objects in the Game class can be rendered to the screen
 
-        Map<String, Integer> leaderboard = NetUtility.getLeaderboard();
-        boolean saveSuccess = NetUtility.saveScoreToLeaderboard("CS205", 1000);
+//        Map<String, Integer> leaderboard = NetUtility.getLeaderboard();
+//        boolean saveSuccess = NetUtility.saveScoreToLeaderboard("CS205", 1000);
 
 
         button = (Button) findViewById(R.id.button);
         animBlink = AnimationUtils.loadAnimation(this,R.anim.blink);
         button.setVisibility(View.VISIBLE);
         button.startAnimation(animBlink);
+        nameInput = (EditText)findViewById(R.id.nameInput);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                name = nameInput.getText().toString();
+                name=name.substring(5);
                 openActivity2();
 
             }
@@ -54,7 +60,7 @@ public class MainActivity extends Activity {
     }
 
     public void openActivity2() {
-        game = new Game(this);
+        game = new Game(this,name);
         setContentView(game);
 //        Intent intent = new Intent(this, Activity2.class);
 //        startActivity(intent);

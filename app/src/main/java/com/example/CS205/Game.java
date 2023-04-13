@@ -49,10 +49,12 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
     private GameDisplay gameDisplay;
     private PointView pointview;
     private int enemyDamage = 1;
+    private String name;
 
 
-    public Game(Context context) {
+    public Game(Context context,String name) {
         super(context);
+        this.name=name;
 
 
         // Get surface holder and add callback
@@ -184,7 +186,7 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
         if (player.getHealthPoint() <= 0) {
             gameOver.draw(canvas);
             restartButton.draw(canvas);
-            NetUtility.saveScoreToLeaderboard("CS205 God", pointview.points);
+            NetUtility.saveScoreToLeaderboard(name, pointview.points);
             gameLoop.pauseLoop();
         }
     }
