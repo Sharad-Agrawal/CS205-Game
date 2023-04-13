@@ -5,7 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.Button;
+import android.view.animation.AnimationUtils;
+
+
 
 import com.example.CS205.network.ApiService;
 
@@ -18,6 +22,8 @@ public class MainActivity extends Activity {
 
     private Button button;
 
+    Animation animBlink;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("MainActivity.java", "onCreate()");
@@ -28,6 +34,10 @@ public class MainActivity extends Activity {
         ApiService service = new ApiService();
 
         button = (Button) findViewById(R.id.button);
+        animBlink = AnimationUtils.loadAnimation(this,R.anim.blink);
+        button.setVisibility(View.VISIBLE);
+        button.startAnimation(animBlink);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
