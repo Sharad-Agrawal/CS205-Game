@@ -1,7 +1,6 @@
 package com.example.CS205;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,7 +10,11 @@ import android.view.animation.AnimationUtils;
 
 
 
-import com.example.CS205.network.ApiService;
+import com.example.CS205.network.ApiInterface;
+import com.example.CS205.network.NetUtility;
+
+import java.util.Map;
+
 
 /**
  * MainActivity is the entry point to our application.
@@ -21,6 +24,7 @@ public class MainActivity extends Activity {
     private Game game;
 
     private Button button;
+    private ApiInterface apiInterface;
 
     Animation animBlink;
 
@@ -31,7 +35,9 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         // Set content view to game, so that objects in the Game class can be rendered to the screen
 
-        ApiService service = new ApiService();
+        Map<String, Integer> leaderboard = NetUtility.getLeaderboard();
+        boolean saveSuccess = NetUtility.saveScoreToLeaderboard("CS205", 1000);
+
 
         button = (Button) findViewById(R.id.button);
         animBlink = AnimationUtils.loadAnimation(this,R.anim.blink);
