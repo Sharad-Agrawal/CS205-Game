@@ -11,6 +11,7 @@ import com.example.CS205.gamepanel.Joystick;
 import com.example.CS205.R;
 import com.example.CS205.Utils;
 import com.example.CS205.gamepanel.graphics.Animator;
+import com.example.CS205.map.MapLayout;
 
 /**
  * Player is the main character of the game, which the user can control with a touch joystick.
@@ -25,6 +26,11 @@ public class Player extends Circle {
     private int healthPoints = MAX_HEALTH_POINTS;
     private Animator animator;
     private PlayerState playerState;
+
+    private static final double mapWidthPixels = MapLayout.NUMBER_OF_COLUMN_TILES * MapLayout.TILE_WIDTH_PIXELS;
+
+    private static final double mapHeightPixels = MapLayout.NUMBER_OF_ROW_TILES * MapLayout.TILE_HEIGHT_PIXELS;
+
 
     public Player(Context context, Joystick joystick, double positionX, double positionY, double radius, Animator animator) {
         super(context, ContextCompat.getColor(context, R.color.player), positionX, positionY, radius);
@@ -43,6 +49,18 @@ public class Player extends Circle {
         // Update position
         positionX += velocityX;
         positionY += velocityY;
+
+        if (positionX < 0) {
+            positionX = 0;
+        } else if (positionX > mapWidthPixels) {
+            positionX = mapWidthPixels;
+        }
+
+        if (positionY < 0) {
+            positionY = 0;
+        } else if (positionY > mapHeightPixels) {
+            positionY = mapHeightPixels;
+        }
 
         // Update direction
         if (velocityX != 0 || velocityY != 0) {

@@ -18,13 +18,13 @@ public class PointView {
     public void draw(Canvas canvas) {
         String text = "Points: " + points;
 
-        float x = 2000;
+        float x = 1500;
         float y = 200;
 
         Paint paint = new Paint();
         int color = ContextCompat.getColor(context, R.color.gameOver);
         paint.setColor(color);
-        float textSize = 150;
+        float textSize = 100;
         paint.setTextSize(textSize);
 
         canvas.drawText(text, x, y, paint);
