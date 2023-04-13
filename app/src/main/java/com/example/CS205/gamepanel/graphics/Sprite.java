@@ -31,6 +31,24 @@ public class Sprite {
         );
     }
 
+    public void draw3(Canvas canvas, int x, int y) {
+        canvas.drawBitmap(
+                spriteSheet.getBitmap3(),
+                rect,
+                new Rect(x, y, x+(getWidth()), y+(getHeight())),
+                null
+        );
+    }
+
+    public void draw4(Canvas canvas, int x, int y) {
+        canvas.drawBitmap(
+                spriteSheet.getBitmap4(),
+                rect,
+                new Rect(x, y, x+(getWidth()), y+(getHeight())),
+                null
+        );
+    }
+
     public int getWidth() {
         return rect.width();
     }

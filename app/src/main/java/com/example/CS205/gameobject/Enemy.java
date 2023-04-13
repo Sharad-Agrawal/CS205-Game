@@ -1,10 +1,13 @@
 package com.example.CS205.gameobject;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.support.v4.content.ContextCompat;
 
+import com.example.CS205.GameDisplay;
 import com.example.CS205.GameLoop;
 import com.example.CS205.R;
+import com.example.CS205.gamepanel.graphics.SpriteSheet;
 
 /**
  * Enemy is a character which always moves in the direction of the player.
@@ -20,6 +23,7 @@ public class Enemy extends Circle {
     private static double updatesUntilNextSpawn = UPDATES_PER_SPAWN;
     private Player player;
     private boolean enemyType;
+    private SpriteSheet spriteSheet;
 
     public Enemy(Context context, Player player, double positionX, double positionY, double radius) {
         super(context, ContextCompat.getColor(context, R.color.enemy), positionX, positionY, radius);
@@ -32,7 +36,7 @@ public class Enemy extends Circle {
      * @param context
      * @param player
      */
-    public Enemy(Context context, Player player, boolean enemyType) {
+    public Enemy(Context context, Player player, boolean enemyType, SpriteSheet spriteSheet) {
         super(
             context,
             ContextCompat.getColor(context, R.color.enemy),
@@ -42,6 +46,7 @@ public class Enemy extends Circle {
         );
         this.player = player;
         this.enemyType = enemyType;
+        this.spriteSheet = spriteSheet;
         if (enemyType) {
             super.setColour(R.color.enemy2);
             updateSpeed();
@@ -100,6 +105,16 @@ public class Enemy extends Circle {
 
     public void updateSpeed() {
         MAX_SPEED = (Player.SPEED_PIXELS_PER_SECOND * 1.0) / GameLoop.MAX_UPS;
+    }
+
+    public void draw(Canvas canvas, GameDisplay gameDisplay){
+        if(enemyType){
+            spriteSheet.getStrongEnemySprite().draw4(canvas,(int) gameDisplay.gameToDisplayCoordinatesX(getPositionX()),
+                    (int) gameDisplay.gameToDisplayCoordinatesY(getPositionY()));
+        } else{
+            spriteSheet.getNormalEnemySprite().draw3(canvas,(int) gameDisplay.gameToDisplayCoordinatesX(getPositionX()),
+                    (int) gameDisplay.gameToDisplayCoordinatesY(getPositionY()));
+        }
     }
 }
 

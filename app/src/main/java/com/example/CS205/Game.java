@@ -47,6 +47,8 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
     private Performance performance;
     private GameDisplay gameDisplay;
     private PointView pointview;
+
+    private SpriteSheet spriteSheet;
     private int enemyDamage = 1;
 
 
@@ -68,7 +70,7 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
         joystick = new Joystick(275, 700, 140, 80);
 
         // Initialize game objects
-        SpriteSheet spriteSheet = new SpriteSheet(context);
+        spriteSheet = new SpriteSheet(context);
         Animator animator = new Animator(spriteSheet.getPlayerSpriteArray());
         player = new Player(context, joystick, 2*500, 500, 32, animator);
 
@@ -197,7 +199,7 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
         // Spawn enemy
         if(Enemy.readyToSpawn()) {
             boolean strongEnemy = Math.random() <= 0.2;
-            enemyList.add(new Enemy(getContext(), player, strongEnemy));
+            enemyList.add(new Enemy(getContext(), player, strongEnemy, spriteSheet));
         }
 
         // Update states of all enemies
@@ -207,7 +209,7 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
 
         // Update states of all spells
         while (numberOfSpellsToCast > 0) {
-            spellList.add(new Spell(getContext(), player));
+            spellList.add(new Spell(getContext(), player, spriteSheet.getSpellSprite()));
             numberOfSpellsToCast --;
         }
         for (Spell spell : spellList) {
