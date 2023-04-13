@@ -30,7 +30,7 @@ public class MainActivity extends Activity {
         // Set content view to game, so that objects in the Game class can be rendered to the screen
 
         Map<String, Integer> leaderboard = NetUtility.getLeaderboard();
-        boolean results = NetUtility.saveScoreToLeaderboard("CS205", 1000);
+        boolean saveSuccess = NetUtility.saveScoreToLeaderboard("CS205", 1000);
 
 
         button = (Button) findViewById(R.id.button);
