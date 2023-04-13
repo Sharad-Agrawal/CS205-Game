@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="horizontal"
+    android:padding="5dip"
+    tools:context=".MainActivity">
+
+
+    <!-- City-->
+    <!-- Weather Information-->
+
+    <TextView
+        android:id="@+id/PlayerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="75dip"
+        android:text="@string/strCity"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/Score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/PlayerName"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="223dp"
+        android:layout_marginTop="-36dp"
+        android:paddingTop="5dip"
+        android:text="@string/strWeather"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+</RelativeLayout>
