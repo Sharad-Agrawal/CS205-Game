@@ -17,6 +17,7 @@ import com.example.CS205.gameobject.Spell;
 import com.example.CS205.gamepanel.GameOver;
 import com.example.CS205.gamepanel.Joystick;
 import com.example.CS205.gamepanel.Performance;
+import com.example.CS205.gamepanel.PointView;
 import com.example.CS205.gamepanel.graphics.Animator;
 import com.example.CS205.gamepanel.graphics.SpriteSheet;
 import com.example.CS205.gamepanel.RestartButton;
@@ -45,7 +46,9 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
     private RestartButton restartButton;
     private Performance performance;
     private GameDisplay gameDisplay;
+    private PointView pointview;
     private int enemyDamage = 1;
+
 
     public Game(Context context) {
         super(context);
@@ -60,6 +63,7 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
         // Initialize game panels
         performance = new Performance(context, gameLoop);
         gameOver = new GameOver(context);
+        pointview = new PointView(context);
         restartButton = new RestartButton(context);
         joystick = new Joystick(275, 700, 140, 80);
 
@@ -93,6 +97,7 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
                         enemyList.clear();
                         spellList.clear();
                         player.setHealthPoint(player.getMaxHealthPoints());
+                        pointview.points = 0;
                     }
                 } else
                     if (joystick.getIsPressed()) {
@@ -169,6 +174,7 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
         // Draw game panels
         joystick.draw(canvas);
         performance.draw(canvas);
+        pointview.draw(canvas);
 
         // Draw Game over if the player is dead
         if (player.getHealthPoint() <= 0) {
@@ -234,9 +240,11 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
                 Circle spell = iteratorSpell.next();
                 // Remove enemy if it collides with a spell
                 if (Circle.isColliding(spell, enemy)) {
+                    pointview.points += 10;
                     if (enemy.getEnemyType()) {
                         player.setHealthPoint(player.getHealthPoint() + 5);
                         enemyDamage = 0;
+                        pointview.points += 10;
                     }
                     iteratorSpell.remove();
                     iteratorEnemy.remove();
