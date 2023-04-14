@@ -55,9 +55,6 @@ public class SpriteSheet {
     public Sprite getIceSprite() {
         return new Sprite(this, new Rect(0, 64, 16, 80));
     }
-    public Sprite getGroundSprite() {
-        return new Sprite(this, new Rect(0, 64, 64, 128));
-    }
     public Sprite getBoulderSprite() {
         return new Sprite(this, new Rect(304, 272, 320, 288));
     }

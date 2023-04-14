@@ -44,15 +44,15 @@ public class MapLayout {
             for (int j = 0; j < 100; j++) {
                 int random = rand.nextInt(1000);
                 if(wallConstraints(i, j)){
-                    layout[i][j] = 0;
+                    layout[i][j] = 0; //setup wall
                 }
                 else if (random < 50){
-                    layout[i][j] = 4;
+                    layout[i][j] = 3; //setup boulder
                 }
                 else if(random < 100){
-                    layout[i][j] = 1;
+                    layout[i][j] = 1; //setup shards
                 }
-                else layout[i][j] = 3;
+                else layout[i][j] = 2; //setup ice floor
             }
         }
     }

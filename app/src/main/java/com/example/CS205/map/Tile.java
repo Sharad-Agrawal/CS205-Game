@@ -16,7 +16,6 @@ abstract class Tile {
     public enum TileType {
         WALL_TILE,
         SHARD_TILE,
-        GROUND_TILE,
         ICE_TILE,
         BOULDER_TILE
     }
@@ -26,8 +25,6 @@ abstract class Tile {
         switch(TileType.values()[idxTileType]) {
             case WALL_TILE:
                 return new WallTile(spriteSheet, mapLocationRect);
-            case GROUND_TILE:
-                return new GroundTile(spriteSheet, mapLocationRect);
             case SHARD_TILE:
                 return new ShardTile(spriteSheet, mapLocationRect);
             case ICE_TILE:
