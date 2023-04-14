@@ -95,12 +95,14 @@ public class MainActivity extends Activity {
     @Override
     protected void onResume() {
         Log.d("MainActivity.java", "onResume()");
+        mediaPlayer.start();
         super.onResume();
     }
 
     @Override
     protected void onPause() {
         Log.d("MainActivity.java", "onPause()");
+        mediaPlayer.pause();
         game.pause();
         super.onPause();
     }
