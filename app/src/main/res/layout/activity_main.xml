@@ -11,13 +11,13 @@
         android:id="@+id/background1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/gamebackground"/>
+        android:src="@drawable/icebackground"/>
 
     <ImageView
         android:id="@+id/background2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/gamebackground"/>
+        android:src="@drawable/icebackground"/>
 
     <!-- Add your RelativeLayout here -->
     <RelativeLayout

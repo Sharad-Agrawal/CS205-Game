@@ -59,7 +59,7 @@ public class MainActivity extends Activity {
 
         //BGM
 
-        mediaPlayer = MediaPlayer.create(this, R.raw.openingmusic);
+        mediaPlayer = MediaPlayer.create(this, R.raw.wintermusic);
         mediaPlayer.setLooping(true);
         mediaPlayer.start();
 
