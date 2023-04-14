@@ -8,6 +8,7 @@ import android.view.animation.Animation;
 import android.widget.Button;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
+import android.media.MediaPlayer;
 
 
 import com.example.CS205.network.ApiInterface;
@@ -26,6 +27,9 @@ public class MainActivity extends Activity {
 
     private Button button;
     private ApiInterface apiInterface;
+
+    private MediaPlayer mediaPlayer;
+
     EditText nameInput;
 
 
@@ -40,6 +44,12 @@ public class MainActivity extends Activity {
 
 //        Map<String, Integer> leaderboard = NetUtility.getLeaderboard();
 //        boolean saveSuccess = NetUtility.saveScoreToLeaderboard("CS205", 1000);
+
+        //BGM
+
+        mediaPlayer = MediaPlayer.create(this, R.raw.openingmusic);
+        mediaPlayer.setLooping(true);
+        mediaPlayer.start();
 
 
         button = (Button) findViewById(R.id.button);
@@ -95,6 +105,9 @@ public class MainActivity extends Activity {
     protected void onDestroy() {
         Log.d("MainActivity.java", "onDestroy()");
         super.onDestroy();
+        // Release the MediaPlayer when the activity is destroyed
+        mediaPlayer.release();
+        mediaPlayer = null;
     }
 
     @Override
@@ -102,4 +115,5 @@ public class MainActivity extends Activity {
         // Comment out "super.onBackPressed()" to disable button
         //super.onBackPressed();
     }
+
 }
