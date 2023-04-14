@@ -50,6 +50,7 @@ public class MainActivity extends Activity {
 //        Map<String, Integer> leaderboard = NetUtility.getLeaderboard();
 //        boolean saveSuccess = NetUtility.saveScoreToLeaderboard("CS205", 1000);
 
+        //For moving background animation
         final ImageView backgroundOne = (ImageView) findViewById(R.id.background1);
         final ImageView backgroundTwo = (ImageView) findViewById(R.id.background2);
         final ValueAnimator animator = ValueAnimator.ofFloat(0.0f, 1.0f);
