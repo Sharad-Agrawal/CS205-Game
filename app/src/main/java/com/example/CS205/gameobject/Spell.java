@@ -43,7 +43,7 @@ public class Spell extends Circle {
         velocityX = spellcaster.getDirectionX() * MAX_SPEED;
         velocityY = spellcaster.getDirectionY() * MAX_SPEED;
 
-        soundEffect = MediaPlayer.create(context, R.raw.energypulse);
+        soundEffect = MediaPlayer.create(context, R.raw.energypulse2);
         soundEffect.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mediaPlayer) {
