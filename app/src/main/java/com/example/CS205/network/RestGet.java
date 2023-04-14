@@ -5,6 +5,9 @@ import android.util.Log;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * Multi-threaded get request with logic for JSON parsing to names and scores
+ * */
 public class RestGet extends Thread {
     private Map<String, Integer> scores;
 

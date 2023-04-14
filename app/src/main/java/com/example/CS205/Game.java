@@ -10,28 +10,21 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.os.Vibrator;
 
-import com.example.CS205.gameobject.Circle;
-import com.example.CS205.gameobject.Enemy;
-import com.example.CS205.gameobject.Player;
-import com.example.CS205.gameobject.Spell;
-import com.example.CS205.gamepanel.GameOver;
-import com.example.CS205.gamepanel.Joystick;
-import com.example.CS205.gamepanel.Performance;
-import com.example.CS205.gamepanel.PointView;
+import com.example.CS205.gameobject.*;
+import com.example.CS205.gamepanel.*;
 import com.example.CS205.gamepanel.graphics.Animator;
 import com.example.CS205.gamepanel.graphics.SpriteSheet;
-import com.example.CS205.gamepanel.RestartButton;
-
 import com.example.CS205.map.Tilemap;
-import com.example.CS205.network.NetUtility;
+import com.example.CS205.network.ApiService;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 /**
- * Game manages all objects in the game and is responsible for updating all states and render all
- * objects to the screen
+ * Game manages all objects in the game and contains the logic for the interaction of different objects.
+ * It handles touch events and carries out the appropriate actions.
+ * Game is also responsible for rendering objects to the screen.
  */
 class Game extends SurfaceView implements SurfaceHolder.Callback {
 
@@ -104,7 +97,10 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
                         enemyDamage = 0;
                         player.setHealthPoint(player.getMaxHealthPoints());
                         pointview.points = 0;
-                        gameLoop = new GameLoop(this, gameLoop.getSurfaceHolder());
+                        SurfaceHolder sh = getHolder();
+                        sh.addCallback(this);
+                        gameLoop = new GameLoop(this, sh);
+                        performance.setGameLoop(gameLoop);
                         gameLoop.startLoop();
                     }
                 } else
@@ -188,8 +184,8 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
         if (player.getHealthPoint() <= 0) {
             gameOver.draw(canvas);
             restartButton.draw(canvas);
-            NetUtility.saveScoreToLeaderboard(name, pointview.points);
-            gameLoop.pauseLoop();
+            ApiService.saveScoreToLeaderboard("CS205 God", pointview.points);
+            gameLoop.finishLoop();
         }
     }
 

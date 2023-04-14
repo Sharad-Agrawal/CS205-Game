@@ -14,16 +14,8 @@ import android.animation.ValueAnimator;
 import android.view.animation.LinearInterpolator;
 
 
-
-
-import com.example.CS205.network.ApiInterface;
-import com.example.CS205.network.NetUtility;
-
-import java.util.Map;
-
-
 /**
- * MainActivity is the entry point to our application.
+ * MainActivity is the the starting activity and where the application begins.
  */
 public class MainActivity extends Activity {
 
@@ -31,7 +23,6 @@ public class MainActivity extends Activity {
     String name;
 
     private Button button;
-    private ApiInterface apiInterface;
 
     private MediaPlayer mediaPlayer;
 
@@ -45,10 +36,6 @@ public class MainActivity extends Activity {
         Log.d("MainActivity.java", "onCreate()");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Set content view to game, so that objects in the Game class can be rendered to the screen
-
-//        Map<String, Integer> leaderboard = NetUtility.getLeaderboard();
-//        boolean saveSuccess = NetUtility.saveScoreToLeaderboard("CS205", 1000);
 
         //For moving background animation
         final ImageView backgroundOne = (ImageView) findViewById(R.id.background1);
@@ -88,17 +75,15 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 name = nameInput.getText().toString();
                 name=name.substring(5);
-                openActivity2();
+                startGame();
 
             }
         });
     }
 
-    public void openActivity2() {
+    public void startGame() {
         game = new Game(this,name);
         setContentView(game);
-//        Intent intent = new Intent(this, Activity2.class);
-//        startActivity(intent);
     }
 
     @Override

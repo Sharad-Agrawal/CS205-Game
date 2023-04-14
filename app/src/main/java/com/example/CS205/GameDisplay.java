@@ -4,6 +4,10 @@ import android.graphics.Rect;
 
 import com.example.CS205.gameobject.GameObject;
 
+
+/**
+ * GameDisplay initialises the basic display of the map to the screen
+ * */
 public class GameDisplay {
     public final Rect DISPLAY_RECT;
     private final int widthPixels;

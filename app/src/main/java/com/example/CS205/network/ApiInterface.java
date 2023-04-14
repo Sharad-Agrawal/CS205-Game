@@ -6,6 +6,8 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
+/**
+ * Interface for defining get and post requests*/
 public interface ApiInterface {
     @Headers({
             "User-Agent: Retrofit-Sample-App",
@@ -21,5 +23,5 @@ public interface ApiInterface {
             "x-apikey: 6746ec2b9d2dbfc6d6eb79396f6c84e0ce55f",
     })
     @POST("high-score")
-    Call<String> savetoDatabase(@Body String body);
+    Call<String> saveToDatabase(@Body String body);
 }

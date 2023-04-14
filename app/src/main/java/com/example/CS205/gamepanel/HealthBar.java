@@ -10,12 +10,12 @@ import com.example.CS205.R;
 import com.example.CS205.gameobject.Player;
 
 /**
- * HealthBar display the players health to the screen
+ * HealthBar displays the player's health on the screen
  */
 public class HealthBar {
     private Player player;
     private Paint borderPaint, healthPaint;
-    private int width, height, margin; // pixel value
+    private final int width, height, margin; // pixel value
 
     public HealthBar(Context context, Player player) {
         this.player = player;

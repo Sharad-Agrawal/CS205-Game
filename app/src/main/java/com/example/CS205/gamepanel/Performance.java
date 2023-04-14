@@ -4,10 +4,15 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 
 import com.example.CS205.GameLoop;
 import com.example.CS205.R;
 
+
+/**
+ * Draws average FPS and average UPS to the screen.
+ * */
 public class Performance {
     private GameLoop gameLoop;
     private Context context;
@@ -38,4 +43,6 @@ public class Performance {
         paint.setTextSize(50);
         canvas.drawText("FPS: " + averageFPS, 100, 200, paint);
     }
+
+    public void setGameLoop(GameLoop gameLoop) {this.gameLoop = gameLoop;}
 }
