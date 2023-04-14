@@ -28,7 +28,6 @@ public class Performance {
         int color = ContextCompat.getColor(context, R.color.magenta);
         paint.setColor(color);
         paint.setTextSize(50);
-        Log.d("Performance.java", String.valueOf(averageUPS));
         canvas.drawText("UPS: " + averageUPS, 100, 100, paint);
     }
 

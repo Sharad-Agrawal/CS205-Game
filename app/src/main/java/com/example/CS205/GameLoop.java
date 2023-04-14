@@ -60,11 +60,6 @@ public class GameLoop extends Thread{
                 synchronized (surfaceHolder) {
                     game.update();
                     updateCount++;
-                    Log.d("GameLoop.java", String.valueOf(updateCount));
-                    Log.d("GameLoop.java", String.valueOf(startTime));
-                    Log.d("GameLoop.java", String.valueOf(elapsedTime));
-                    Log.d("GameLoop.java", String.valueOf(getAverageFPS()));
-
                     game.draw(canvas);
                 }
             } catch (IllegalArgumentException e) {

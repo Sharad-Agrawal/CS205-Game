@@ -45,10 +45,6 @@ public class MainActivity extends Activity {
         Log.d("MainActivity.java", "onCreate()");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Set content view to game, so that objects in the Game class can be rendered to the screen
-
-//        Map<String, Integer> leaderboard = NetUtility.getLeaderboard();
-//        boolean saveSuccess = NetUtility.saveScoreToLeaderboard("CS205", 1000);
 
         final ImageView backgroundOne = (ImageView) findViewById(R.id.background1);
         final ImageView backgroundTwo = (ImageView) findViewById(R.id.background2);
