@@ -182,10 +182,10 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
 
         // Draw Game over if the player is dead
         if (player.getHealthPoint() <= 0) {
+            gameLoop.finishLoop();
             gameOver.draw(canvas);
             restartButton.draw(canvas);
-            ApiService.saveScoreToLeaderboard("CS205 God", pointview.points);
-            gameLoop.finishLoop();
+            ApiService.saveScoreToLeaderboard(name, pointview.points);
         }
     }
 
