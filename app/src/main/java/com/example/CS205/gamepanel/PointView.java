@@ -6,6 +6,10 @@ import android.graphics.Paint;
 import android.support.v4.content.ContextCompat;
 
 import com.example.CS205.R;
+
+/**
+ * Draws current points earned to the screen.
+ * */
 public class PointView {
     public int points = 0;
     private Context context;

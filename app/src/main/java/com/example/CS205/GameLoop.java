@@ -4,6 +4,11 @@ import android.graphics.Canvas;
 import android.util.Log;
 import android.view.SurfaceHolder;
 
+/**
+ * GameLoop contains multi-threaded logic for updating the canvas.
+ * This class regulates the frequency of updates to the canvas and keeps it around a predefined constant of 60.
+ * Also calculates average FPS (frames per second) and UPS (updates per second).
+ * */
 public class GameLoop extends Thread{
     public static final double MAX_UPS = 60.0;
     private static final double UPS_PERIOD = 1E+3/MAX_UPS;
@@ -46,7 +51,7 @@ public class GameLoop extends Thread{
         int frameCount = 0;
 
         long startTime;
-        long elapsedTime = 0;
+        long elapsedTime;
         long sleepTime;
 
         // Game loop

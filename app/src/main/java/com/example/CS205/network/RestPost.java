@@ -2,9 +2,9 @@ package com.example.CS205.network;
 
 import android.util.Log;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
+/**
+ * Multi-threaded post request to save name and score to online database
+ * */
 public class RestPost extends Thread {
     private final String name;
     private final String score;
@@ -26,7 +26,7 @@ public class RestPost extends Thread {
         ApiInterface service = ApiService.getClient().create(ApiInterface.class);
 
         try {
-            success = service.savetoDatabase(body).execute().isSuccessful();
+            success = service.saveToDatabase(body).execute().isSuccessful();
             results = success ? "Success" : "Failure";
             Log.d("RestPost.java", results);
         } catch (Exception e) {

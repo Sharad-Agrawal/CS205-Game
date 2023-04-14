@@ -8,9 +8,13 @@ import android.support.v4.content.ContextCompat;
 import com.example.CS205.GameDisplay;
 import com.example.CS205.R;
 
+
+/**
+ * RestartButton displays a button for restarting the game upon game over.
+ * */
 public class RestartButton {
-    private int width, height;
-    private float x, y;
+    private final int width, height;
+    private final float x, y;
     private Context context;
     private Paint buttonPaint, textPaint;
 

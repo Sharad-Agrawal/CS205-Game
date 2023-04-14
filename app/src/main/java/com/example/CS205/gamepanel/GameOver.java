@@ -9,7 +9,7 @@ import com.example.CS205.R;
 
 
 /**
- * GameOver is a panel which draws the text Game Over to the screen.
+ * GameOver displays the text Game Over on the screen when the player dies.
  */
 public class GameOver {
 

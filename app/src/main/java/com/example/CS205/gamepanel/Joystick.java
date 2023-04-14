@@ -4,6 +4,9 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
+/**
+ * Draws the joystick to the screen and implements logic for joystick press
+ * */
 public class Joystick {
 
     private int outerCircleCenterPositionX;

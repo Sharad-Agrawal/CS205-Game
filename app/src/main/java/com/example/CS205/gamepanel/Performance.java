@@ -9,6 +9,10 @@ import android.util.Log;
 import com.example.CS205.GameLoop;
 import com.example.CS205.R;
 
+
+/**
+ * Draws average FPS and average UPS to the screen.
+ * */
 public class Performance {
     private GameLoop gameLoop;
     private Context context;
