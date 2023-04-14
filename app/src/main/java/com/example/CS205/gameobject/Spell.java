@@ -128,6 +128,26 @@ public class Spell extends Circle {
             );
         }
 
+        // Add fading trail of light
+        Paint trailPaint = new Paint();
+        trailPaint.setStyle(Paint.Style.FILL);
+        trailPaint.setColor(Color.YELLOW);
+        trailPaint.setAlpha(80);
+
+        for (int i = 0; i < 5; i++) {
+            double trailX = positionX - velocityX * i;
+            double trailY = positionY - velocityY * i;
+            double trailRadius = radius * (1.0 - (i / 10.0));
+            trailPaint.setAlpha((int) (80 * (1.0 - (i / 5.0))));
+            canvas.drawCircle(
+                    (float) gameDisplay.gameToDisplayCoordinatesX(trailX),
+                    (float) gameDisplay.gameToDisplayCoordinatesY(trailY),
+                    (float) trailRadius,
+                    trailPaint
+            );
+        }
+
         canvas.restore();
     }
+
 }
