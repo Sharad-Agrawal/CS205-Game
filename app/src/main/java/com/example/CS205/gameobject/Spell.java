@@ -98,7 +98,7 @@ public class Spell extends Circle {
                 (float) gameDisplay.gameToDisplayCoordinatesX(positionX),
                 (float) gameDisplay.gameToDisplayCoordinatesY(positionY),
                 gradientRadius,
-                Color.YELLOW,
+                Color.WHITE,
                 Color.TRANSPARENT,
                 Shader.TileMode.CLAMP
         );
@@ -106,21 +106,24 @@ public class Spell extends Circle {
         canvas.drawCircle(
                 (float) gameDisplay.gameToDisplayCoordinatesX(positionX),
                 (float) gameDisplay.gameToDisplayCoordinatesY(positionY),
-                (float) radius, innerCirclePaint
+                (float) radius,
+                outerCirclePaint
         );
         canvas.drawCircle(
                 (float) gameDisplay.gameToDisplayCoordinatesX(positionX),
                 (float) gameDisplay.gameToDisplayCoordinatesY(positionY),
-                (float) radius,
-                outerCirclePaint
+                (float) (radius * 0.7),
+                innerCirclePaint
         );
 
-        // Add sparkle effects
+        // Add sparkles around the outer circle
         for (int i = 0; i < 10; i++) {
+            double sparkleX = positionX + random.nextDouble() * radius * 0.8 * Math.cos(random.nextDouble() * 2 * Math.PI);
+            double sparkleY = positionY + random.nextDouble() * radius * 0.8 * Math.sin(random.nextDouble() * 2 * Math.PI);
             canvas.drawCircle(
-                    (float) gameDisplay.gameToDisplayCoordinatesX(positionX + random.nextInt((int) radius * 2) - radius),
-                    (float) gameDisplay.gameToDisplayCoordinatesY(positionY + random.nextInt((int) radius * 2) - radius),
-                    random.nextInt(3),
+                    (float) gameDisplay.gameToDisplayCoordinatesX(sparkleX),
+                    (float) gameDisplay.gameToDisplayCoordinatesY(sparkleY),
+                    3,
                     sparklePaint
             );
         }
