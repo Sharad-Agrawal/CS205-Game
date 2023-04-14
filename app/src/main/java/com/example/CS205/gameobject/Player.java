@@ -55,8 +55,16 @@ public class Player extends Circle {
         } else {
             // Gradually decrease velocity until stop
             double deceleration = 0.1;
-            velocityX = Math.max(0, velocityX - deceleration);
-            velocityY = Math.max(0, velocityY - deceleration);
+            if (velocityX > 0) {
+                velocityX = Math.max(0, velocityX - deceleration);
+            } else if (velocityX < 0) {
+                velocityX = Math.min(0, velocityX + deceleration);
+            }
+            if (velocityY > 0) {
+                velocityY = Math.max(0, velocityY - deceleration);
+            } else if (velocityY < 0) {
+                velocityY = Math.min(0, velocityY + deceleration);
+            }
         }
 
         // Update position
@@ -85,6 +93,7 @@ public class Player extends Circle {
 
         playerState.update();
     }
+
 
 
     public void draw(Canvas canvas, GameDisplay gameDisplay) {
