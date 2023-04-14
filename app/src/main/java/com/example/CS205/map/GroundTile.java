@@ -11,11 +11,11 @@ class GroundTile extends Tile {
 
     public GroundTile(SpriteSheet spriteSheet, Rect mapLocationRect) {
         super(mapLocationRect);
-        sprite = null;
+        sprite = spriteSheet.getGroundSprite();
     }
 
     @Override
     public void draw(Canvas canvas) {
-        sprite.draw(canvas, mapLocationRect.left, mapLocationRect.top);
+        sprite.drawIce(canvas, mapLocationRect.left, mapLocationRect.top);
     }
 }

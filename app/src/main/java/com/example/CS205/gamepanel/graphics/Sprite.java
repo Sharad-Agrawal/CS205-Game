@@ -13,38 +13,47 @@ public class Sprite {
         this.rect = rect;
     }
 
-    public void draw(Canvas canvas, int x, int y) {
+    public void drawWall(Canvas canvas, int x, int y) {
         canvas.drawBitmap(
-            spriteSheet.getBitmap(),
+            spriteSheet.getWallBitmap(),
                 rect,
                 new Rect(x, y, x+getWidth(), y+getHeight()),
                 null
         );
     }
 
-    public void draw2(Canvas canvas, int x, int y) {
+    public void drawCharacter(Canvas canvas, int x, int y) {
         canvas.drawBitmap(
-                spriteSheet.getBitmap2(),
+                spriteSheet.getCharacterBitmap(),
                 rect,
                 new Rect(x, y, x+(getWidth()*2), y+(getHeight()*2)),
                 null
         );
     }
 
-    public void draw3(Canvas canvas, int x, int y) {
+    public void drawNormalEnemy(Canvas canvas, int x, int y) {
         canvas.drawBitmap(
-                spriteSheet.getBitmap3(),
+                spriteSheet.getNormalEnemyBitmap(),
                 rect,
                 new Rect(x, y, x+(getWidth()), y+(getHeight())),
                 null
         );
     }
 
-    public void draw4(Canvas canvas, int x, int y) {
+    public void drawStrongEnemy(Canvas canvas, int x, int y) {
         canvas.drawBitmap(
-                spriteSheet.getBitmap4(),
+                spriteSheet.getStrongEnemyBitmap(),
                 rect,
                 new Rect(x, y, x+(getWidth()), y+(getHeight())),
+                null
+        );
+    }
+
+    public void drawIce(Canvas canvas, int x, int y) {
+        canvas.drawBitmap(
+                spriteSheet.getIceBitmap(),
+                rect,
+                new Rect(x, y, x+(getWidth()*4), y+(getHeight()*4)),
                 null
         );
     }

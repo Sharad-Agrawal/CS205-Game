@@ -15,10 +15,10 @@ abstract class Tile {
 
     public enum TileType {
         WALL_TILE,
-        HOUSE_TILE,
+        SHARD_TILE,
         GROUND_TILE,
-        GRASS_TILE,
-        FLOWER_TILE
+        ICE_TILE,
+        BOULDER_TILE
     }
 
     public static Tile getTile(int idxTileType, SpriteSheet spriteSheet, Rect mapLocationRect) {
@@ -26,12 +26,14 @@ abstract class Tile {
         switch(TileType.values()[idxTileType]) {
             case WALL_TILE:
                 return new WallTile(spriteSheet, mapLocationRect);
-            case HOUSE_TILE:
-                return new HouseTile(spriteSheet, mapLocationRect);
-            case GRASS_TILE:
-                return new GrassTile(spriteSheet, mapLocationRect);
-            case FLOWER_TILE:
-                return new FlowerTile(spriteSheet, mapLocationRect);
+            case GROUND_TILE:
+                return new GroundTile(spriteSheet, mapLocationRect);
+            case SHARD_TILE:
+                return new ShardTile(spriteSheet, mapLocationRect);
+            case ICE_TILE:
+                return new IceTile(spriteSheet, mapLocationRect);
+            case BOULDER_TILE:
+                return new BoulderTile(spriteSheet, mapLocationRect);
             default:
                 return null;
         }

@@ -6,16 +6,16 @@ import android.graphics.Rect;
 import com.example.CS205.gamepanel.graphics.Sprite;
 import com.example.CS205.gamepanel.graphics.SpriteSheet;
 
-class GrassTile extends Tile {
+class IceTile extends Tile {
     private final Sprite sprite;
 
-    public GrassTile(SpriteSheet spriteSheet, Rect mapLocationRect) {
+    public IceTile(SpriteSheet spriteSheet, Rect mapLocationRect) {
         super(mapLocationRect);
-        sprite = spriteSheet.getGrassSprite();
+        sprite = spriteSheet.getIceSprite();
     }
 
     @Override
     public void draw(Canvas canvas) {
-        sprite.draw(canvas, mapLocationRect.left, mapLocationRect.top);
+        sprite.drawIce(canvas, mapLocationRect.left, mapLocationRect.top);
     }
 }

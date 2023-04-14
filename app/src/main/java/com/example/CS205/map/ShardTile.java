@@ -6,19 +6,19 @@ import android.graphics.Rect;
 import com.example.CS205.gamepanel.graphics.Sprite;
 import com.example.CS205.gamepanel.graphics.SpriteSheet;
 
-class WallTile extends Tile {
+class ShardTile extends Tile {
     private final Sprite iceSprite;
-    private final Sprite wallSprite;
+    private final Sprite shardSprite;
 
-    public WallTile(SpriteSheet spriteSheet, Rect mapLocationRect) {
+    public ShardTile(SpriteSheet spriteSheet, Rect mapLocationRect) {
         super(mapLocationRect);
         iceSprite = spriteSheet.getIceSprite();
-        wallSprite = spriteSheet.getWallSprite();
+        shardSprite = spriteSheet.getShardSprite();
     }
 
     @Override
     public void draw(Canvas canvas) {
         iceSprite.drawIce(canvas, mapLocationRect.left, mapLocationRect.top);
-        wallSprite.drawWall(canvas, mapLocationRect.left, mapLocationRect.top);
+        shardSprite.drawIce(canvas, mapLocationRect.left, mapLocationRect.top);
     }
 }

@@ -46,10 +46,10 @@ public class MapLayout {
                 if(wallConstraints(i, j)){
                     layout[i][j] = 0;
                 }
-                else if (random < 100){
+                else if (random < 50){
                     layout[i][j] = 4;
                 }
-                else if(random < 120){
+                else if(random < 100){
                     layout[i][j] = 1;
                 }
                 else layout[i][j] = 3;

@@ -109,10 +109,10 @@ public class Enemy extends Circle {
 
     public void draw(Canvas canvas, GameDisplay gameDisplay){
         if(enemyType){
-            spriteSheet.getStrongEnemySprite().draw4(canvas,(int) gameDisplay.gameToDisplayCoordinatesX(getPositionX()),
+            spriteSheet.getStrongEnemySprite().drawStrongEnemy(canvas,(int) gameDisplay.gameToDisplayCoordinatesX(getPositionX()),
                     (int) gameDisplay.gameToDisplayCoordinatesY(getPositionY()));
         } else{
-            spriteSheet.getNormalEnemySprite().draw3(canvas,(int) gameDisplay.gameToDisplayCoordinatesX(getPositionX()),
+            spriteSheet.getNormalEnemySprite().drawNormalEnemy(canvas,(int) gameDisplay.gameToDisplayCoordinatesX(getPositionX()),
                     (int) gameDisplay.gameToDisplayCoordinatesY(getPositionY()));
         }
     }

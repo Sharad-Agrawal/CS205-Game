@@ -8,18 +8,20 @@ import android.graphics.Rect;
 import com.example.CS205.R;
 
 public class SpriteSheet {
-    private Bitmap bitmap;
-    private Bitmap bitmap2;
-    private Bitmap bitmap3;
-    private Bitmap bitmap4;
+    private Bitmap wallBitmap;
+    private Bitmap characterBitmap;
+    private Bitmap normalEnemyBitmap;
+    private Bitmap strongEnemyBitmap;
+    private Bitmap iceBitmap;
 
     public SpriteSheet(Context context) {
         BitmapFactory.Options bitmapOptions = new BitmapFactory.Options();
         bitmapOptions.inScaled = false;
-        bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.image, bitmapOptions);
-        bitmap2 = BitmapFactory.decodeResource(context.getResources(), R.drawable.char_purple_1, bitmapOptions);
-        bitmap3 = BitmapFactory.decodeResource(context.getResources(), R.drawable.normal_enemy, bitmapOptions);
-        bitmap4 = BitmapFactory.decodeResource(context.getResources(), R.drawable.strong_enemy, bitmapOptions);
+        wallBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.wall, bitmapOptions);
+        characterBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.character, bitmapOptions);
+        normalEnemyBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.normal_enemy, bitmapOptions);
+        strongEnemyBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.strong_enemy, bitmapOptions);
+        iceBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.ice, bitmapOptions);
     }
 
     public Sprite[] getPlayerSpriteArray() {
@@ -30,39 +32,37 @@ public class SpriteSheet {
         return spriteArray;
     }
 
-    public Bitmap getBitmap() {
-        return bitmap;
+    public Bitmap getWallBitmap() {
+        return wallBitmap;
+    }
+    public Bitmap getCharacterBitmap(){
+        return characterBitmap;
+    }
+    public Bitmap getNormalEnemyBitmap(){
+        return normalEnemyBitmap;
+    }
+    public Bitmap getStrongEnemyBitmap(){
+        return strongEnemyBitmap;
+    }
+    public Bitmap getIceBitmap(){
+        return iceBitmap;
     }
 
-    public Bitmap getBitmap2(){
-        return bitmap2;
-    }
 
-    public Bitmap getBitmap3(){
-        return bitmap3;
+    public Sprite getShardSprite() {
+        return new Sprite(this, new Rect(0, 0, 16, 16));
     }
-
-    public Bitmap getBitmap4(){
-        return bitmap4;
+    public Sprite getIceSprite() {
+        return new Sprite(this, new Rect(0, 64, 16, 80));
     }
-
-    public Sprite getHouseSprite() {
-        return new Sprite(this, new Rect(464, 1, 527, 65));
+    public Sprite getGroundSprite() {
+        return new Sprite(this, new Rect(0, 64, 64, 128));
     }
-
-    public Sprite getGrassSprite() {
-        return new Sprite(this, new Rect(67, 67, 131, 131));
-    }
-
-    public Sprite getFlowerSprite() {
-        return new Sprite(this, new Rect(8, 539, 49, 577));
+    public Sprite getBoulderSprite() {
+        return new Sprite(this, new Rect(304, 272, 320, 288));
     }
     public Sprite getWallSprite() {
-        return new Sprite(this, new Rect(331, 67, 395, 131));
-    }
-
-    public Sprite getSpellSprite() {
-        return new Sprite(this, new Rect(476, 207, 512, 261));
+        return new Sprite(this, new Rect(463, 133, 527, 197));
     }
     public Sprite getNormalEnemySprite(){
         return new Sprite(this, new Rect(0, 0, 64, 64));
