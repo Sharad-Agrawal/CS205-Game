@@ -6,19 +6,19 @@ import android.graphics.Rect;
 import com.example.CS205.gamepanel.graphics.Sprite;
 import com.example.CS205.gamepanel.graphics.SpriteSheet;
 
-class TreeTile extends Tile {
+class HouseTile extends Tile {
     private final Sprite grassSprite;
-    private final Sprite treeSprite;
+    private final Sprite houseSprite;
 
-    public TreeTile(SpriteSheet spriteSheet, Rect mapLocationRect) {
+    public HouseTile(SpriteSheet spriteSheet, Rect mapLocationRect) {
         super(mapLocationRect);
         grassSprite = spriteSheet.getGrassSprite();
-        treeSprite = spriteSheet.getTreeSprite();
+        houseSprite = spriteSheet.getHouseSprite();
     }
 
     @Override
     public void draw(Canvas canvas) {
         grassSprite.draw(canvas, mapLocationRect.left, mapLocationRect.top);
-        treeSprite.draw(canvas, mapLocationRect.left, mapLocationRect.top);
+        houseSprite.draw(canvas, mapLocationRect.left, mapLocationRect.top);
     }
 }

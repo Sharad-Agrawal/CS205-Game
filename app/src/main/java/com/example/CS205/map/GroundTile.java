@@ -11,7 +11,7 @@ class GroundTile extends Tile {
 
     public GroundTile(SpriteSheet spriteSheet, Rect mapLocationRect) {
         super(mapLocationRect);
-        sprite = spriteSheet.getGroundSprite();
+        sprite = null;
     }
 
     @Override

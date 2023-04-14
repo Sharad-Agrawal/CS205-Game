@@ -8,8 +8,6 @@ import android.graphics.Rect;
 import com.example.CS205.R;
 
 public class SpriteSheet {
-    private static final int SPRITE_WIDTH_PIXELS = 64;
-    private static final int SPRITE_HEIGHT_PIXELS = 64;
     private Bitmap bitmap;
     private Bitmap bitmap2;
     private Bitmap bitmap3;
@@ -48,24 +46,19 @@ public class SpriteSheet {
         return bitmap4;
     }
 
-    public Sprite getWaterSprite() {
-        return getSpriteByIndex(1, 0);
-    }
-
-    public Sprite getLavaSprite() {
+    public Sprite getHouseSprite() {
         return new Sprite(this, new Rect(464, 1, 527, 65));
-    }
-
-    public Sprite getGroundSprite() {
-        return getSpriteByIndex(1, 2);
     }
 
     public Sprite getGrassSprite() {
         return new Sprite(this, new Rect(67, 67, 131, 131));
     }
 
-    public Sprite getTreeSprite() {
+    public Sprite getFlowerSprite() {
         return new Sprite(this, new Rect(8, 539, 49, 577));
+    }
+    public Sprite getWallSprite() {
+        return new Sprite(this, new Rect(331, 67, 395, 131));
     }
 
     public Sprite getSpellSprite() {
@@ -79,12 +72,4 @@ public class SpriteSheet {
     }
 
 
-    private Sprite getSpriteByIndex(int idxRow, int idxCol) {
-        return new Sprite(this, new Rect(
-                idxCol*SPRITE_WIDTH_PIXELS,
-                idxRow*SPRITE_HEIGHT_PIXELS,
-                (idxCol + 1)*SPRITE_WIDTH_PIXELS,
-                (idxRow + 1)*SPRITE_HEIGHT_PIXELS
-        ));
-    }
 }
