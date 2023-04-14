@@ -9,6 +9,8 @@
     <color name="enemy">#00FFFF</color>
     <color name="enemy2">#000000</color>
     <color name="spell">#FF9400</color>
+    <color name="energy_sphere_color">#87CEEB</color>
+    <color name="energy_sphere_color_translucent">#AFEEEE</color>
     <color name="healthBarBorder">#A0A0A0</color>
     <color name="healthBarHealth">#00FF00</color>
     <color name="gameOver">#FC5245</color>
