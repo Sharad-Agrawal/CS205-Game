@@ -27,9 +27,13 @@ public class Player extends Circle {
     private Animator animator;
     private PlayerState playerState;
 
-    private static final double mapWidthPixels = MapLayout.NUMBER_OF_COLUMN_TILES * MapLayout.TILE_WIDTH_PIXELS;
+    private static final double mapWidthPixels = 80 * MapLayout.TILE_WIDTH_PIXELS;
 
-    private static final double mapHeightPixels = MapLayout.NUMBER_OF_ROW_TILES * MapLayout.TILE_HEIGHT_PIXELS;
+    private static final double mapWidthPixels2 = 20 * MapLayout.TILE_WIDTH_PIXELS;
+
+    private static final double mapHeightPixels = 80 * MapLayout.TILE_HEIGHT_PIXELS;
+
+    private static final double mapHeightPixels2 = 20 * MapLayout.TILE_HEIGHT_PIXELS;
 
 
     public Player(Context context, Joystick joystick, double positionX, double positionY, double radius, Animator animator) {
@@ -50,14 +54,14 @@ public class Player extends Circle {
         positionX += velocityX;
         positionY += velocityY;
 
-        if (positionX < 0) {
-            positionX = 0;
+        if (positionX < mapWidthPixels2) {
+            positionX = mapWidthPixels2;
         } else if (positionX > mapWidthPixels) {
             positionX = mapWidthPixels;
         }
 
-        if (positionY < 0) {
-            positionY = 0;
+        if (positionY < mapHeightPixels2) {
+            positionY = mapHeightPixels2;
         } else if (positionY > mapHeightPixels) {
             positionY = mapHeightPixels;
         }
