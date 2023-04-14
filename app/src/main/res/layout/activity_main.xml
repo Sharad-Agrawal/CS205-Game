@@ -8,7 +8,13 @@
 
     <!-- Add your ImageView here -->
     <ImageView
-        android:id="@+id/background"
+        android:id="@+id/background1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/gamebackground"/>
+
+    <ImageView
+        android:id="@+id/background2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/gamebackground"/>
