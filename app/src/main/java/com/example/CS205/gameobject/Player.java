@@ -45,10 +45,19 @@ public class Player extends Circle {
     }
 
     public void update() {
+        // Check if joystick is being used
+        boolean joystickUsed = (joystick.getActuatorX() != 0 || joystick.getActuatorY() != 0);
 
-        // Update velocity based on actuator of joystick
-        velocityX = joystick.getActuatorX()*MAX_SPEED;
-        velocityY = joystick.getActuatorY()*MAX_SPEED;
+        if (joystickUsed) {
+            // Update velocity based on actuator of joystick
+            velocityX = joystick.getActuatorX()*MAX_SPEED;
+            velocityY = joystick.getActuatorY()*MAX_SPEED;
+        } else {
+            // Gradually decrease velocity until stop
+            double deceleration = 0.1;
+            velocityX = Math.max(0, velocityX - deceleration);
+            velocityY = Math.max(0, velocityY - deceleration);
+        }
 
         // Update position
         positionX += velocityX;
@@ -76,6 +85,7 @@ public class Player extends Circle {
 
         playerState.update();
     }
+
 
     public void draw(Canvas canvas, GameDisplay gameDisplay) {
         animator.draw(canvas, gameDisplay, this);
