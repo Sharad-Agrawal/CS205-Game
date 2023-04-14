@@ -100,7 +100,10 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
                         enemyDamage = 0;
                         player.setHealthPoint(player.getMaxHealthPoints());
                         pointview.points = 0;
-                        gameLoop = new GameLoop(this, gameLoop.getSurfaceHolder());
+                        SurfaceHolder sh = getHolder();
+                        sh.addCallback(this);
+                        gameLoop = new GameLoop(this, sh);
+                        performance.setGameLoop(gameLoop);
                         gameLoop.startLoop();
                     }
                 } else
@@ -185,7 +188,7 @@ class Game extends SurfaceView implements SurfaceHolder.Callback {
             gameOver.draw(canvas);
             restartButton.draw(canvas);
             NetUtility.saveScoreToLeaderboard("CS205 God", pointview.points);
-            gameLoop.pauseLoop();
+            gameLoop.finishLoop();
         }
     }
 

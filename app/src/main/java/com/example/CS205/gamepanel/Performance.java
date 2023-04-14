@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 
 import com.example.CS205.GameLoop;
 import com.example.CS205.R;
@@ -27,6 +28,7 @@ public class Performance {
         int color = ContextCompat.getColor(context, R.color.magenta);
         paint.setColor(color);
         paint.setTextSize(50);
+        Log.d("Performance.java", String.valueOf(averageUPS));
         canvas.drawText("UPS: " + averageUPS, 100, 100, paint);
     }
 
@@ -38,4 +40,6 @@ public class Performance {
         paint.setTextSize(50);
         canvas.drawText("FPS: " + averageFPS, 100, 200, paint);
     }
+
+    public void setGameLoop(GameLoop gameLoop) {this.gameLoop = gameLoop;}
 }

@@ -5,7 +5,7 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 
 public class GameLoop extends Thread{
-    public static final double MAX_UPS = 30.0;
+    public static final double MAX_UPS = 60.0;
     private static final double UPS_PERIOD = 1E+3/MAX_UPS;
 
     private Game game;
@@ -46,7 +46,7 @@ public class GameLoop extends Thread{
         int frameCount = 0;
 
         long startTime;
-        long elapsedTime;
+        long elapsedTime = 0;
         long sleepTime;
 
         // Game loop
@@ -60,6 +60,10 @@ public class GameLoop extends Thread{
                 synchronized (surfaceHolder) {
                     game.update();
                     updateCount++;
+                    Log.d("GameLoop.java", String.valueOf(updateCount));
+                    Log.d("GameLoop.java", String.valueOf(startTime));
+                    Log.d("GameLoop.java", String.valueOf(elapsedTime));
+                    Log.d("GameLoop.java", String.valueOf(getAverageFPS()));
 
                     game.draw(canvas);
                 }
@@ -105,7 +109,6 @@ public class GameLoop extends Thread{
                 startTime = System.currentTimeMillis();
             }
         }
-        this.interrupt();
     }
 
     public void stopLoop() {
@@ -118,7 +121,7 @@ public class GameLoop extends Thread{
         }
     }
 
-    public void pauseLoop() {
+    public void finishLoop() {
         Log.d("GameLoop.java", "pauseLoop()");
         isRunning = false;
 //        try {
