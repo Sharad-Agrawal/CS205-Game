@@ -310,7 +310,6 @@ class SpellGenerator implements Runnable{
     private Context context;
 
     public SpellGenerator(int rate, SpellPool pool,Player player, Context context,Lock lock){
-        Log.d("Game.java", "Generator is created");
         this.player = player;
         this.context = context;
         this.rate = rate;
@@ -329,7 +328,6 @@ class SpellGenerator implements Runnable{
             }
             lock.lock();
             pool.enqueue(new Spell(context,player,true));
-            Log.d("Game.java", "pool has enqueued a spell");
             lock.unlock();
         }
     }

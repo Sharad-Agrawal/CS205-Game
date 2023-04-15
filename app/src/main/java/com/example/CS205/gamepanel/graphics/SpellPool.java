@@ -103,7 +103,6 @@ public class SpellPool {
 
         qtyOfspells = size();
 
-        Log.d("SpellPool.java", "current size is " + qtyOfspells);
         // Draw circle to canvas
         canvas.drawCircle(
                 (float) 1550,
