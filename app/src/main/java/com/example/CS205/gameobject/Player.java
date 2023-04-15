@@ -50,8 +50,18 @@ public class Player extends Circle {
 
         if (joystickUsed) {
             // Update velocity based on actuator of joystick
-            velocityX = joystick.getActuatorX()*MAX_SPEED;
-            velocityY = joystick.getActuatorY()*MAX_SPEED;
+            double joystickPositionX = joystick.getActuatorX();
+            double joystickPositionY = joystick.getActuatorY();
+            if(joystickPositionX > 0){
+                velocityX = Math.min(velocityX + 0.1, joystickPositionX*MAX_SPEED);
+            } else if(joystickPositionX < 0){
+                velocityX = Math.max(velocityX - 0.1, joystickPositionX*MAX_SPEED);
+            }
+            if(joystickPositionY > 0){
+                velocityY = Math.min(velocityY + 0.1, joystickPositionY*MAX_SPEED);
+            } else if(joystickPositionY < 0){
+                velocityY = Math.max(velocityY - 0.1, joystickPositionY*MAX_SPEED);
+            }
         } else {
             // Gradually decrease velocity until stop
             double deceleration = 0.1;
