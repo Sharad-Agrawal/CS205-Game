@@ -48,6 +48,8 @@ public class Player extends Circle {
         // Check if joystick is being used
         boolean joystickUsed = (joystick.getActuatorX() != 0 || joystick.getActuatorY() != 0);
 
+        // Change of velocity. Velocity = current Velocity + deceleration
+
         if (joystickUsed) {
             // Update velocity based on actuator of joystick
             double joystickPositionX = joystick.getActuatorX();
