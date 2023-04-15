@@ -72,8 +72,4 @@ public class Tilemap {
                 null
         );
     }
-
-    public Tile getCurrTile(double x_coord, double y_coord) {
-        return tilemap[0][0];
-    }
 }
