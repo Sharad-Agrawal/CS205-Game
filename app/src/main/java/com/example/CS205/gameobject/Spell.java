@@ -21,6 +21,8 @@ public class Spell extends Circle {
 
     private MediaPlayer soundEffect;
 
+    private boolean isPreLoaded;
+
     private Paint outerCirclePaint;
     private Paint innerCirclePaint;
     private Paint sparklePaint;
@@ -30,8 +32,11 @@ public class Spell extends Circle {
     private float gradientRadius = 0;
     private boolean increasing = true;
 
-    public Spell(Context context, Player spellcaster) {
+    public Spell(Context context, Player spellcaster, boolean isPreLoaded) {
+
         super(context, Color.YELLOW, spellcaster.getPositionX(), spellcaster.getPositionY(), 25);
+
+        this.isPreLoaded = isPreLoaded;
 
         // Set paint style
         paint.setStyle(Paint.Style.FILL);
@@ -43,14 +48,16 @@ public class Spell extends Circle {
         velocityX = spellcaster.getDirectionX() * MAX_SPEED;
         velocityY = spellcaster.getDirectionY() * MAX_SPEED;
 
-        soundEffect = MediaPlayer.create(context, R.raw.energypulse2);
-        soundEffect.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mediaPlayer) {
-                soundEffect.release();
-            }
-        });
-        soundEffect.start();
+        if (!isPreLoaded) {
+            soundEffect = MediaPlayer.create(context, R.raw.energypulse2);
+            soundEffect.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mediaPlayer) {
+                    soundEffect.release();
+                }
+            });
+            soundEffect.start();
+        }
 
         // Set up paint objects for outer and inner circles and sparkle effects
         outerCirclePaint = new Paint();
